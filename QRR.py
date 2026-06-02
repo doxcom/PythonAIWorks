@@ -1,4 +1,6 @@
 import qrcode
+import random
+import string
 
 # Datos que quieres convertir en QR
 datos = input("¿Qué texto o enlace quieres convertir a QR? ")
@@ -10,6 +12,8 @@ qr.make(fit=True)
 
 # Generar y guardar la imagen
 img = qr.make_image(fill_color="black", back_color="white")
-img.save("mi_primer_qr.png")
+randomName = ''.join(random.choices(string.ascii_letters + string.digits, k =10))
+fileNameQR = randomName + ".png"
+img.save(fileNameQR)
 
-print("¡QR generado! Busca 'mi_primer_qr.png' en la carpeta actual")
+print(f"¡QR generado! Busca {fileNameQR} en la carpeta actual")
